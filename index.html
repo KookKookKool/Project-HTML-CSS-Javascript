@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <title>โปรแกรมคำนวณเงินเดือน</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+
+    <br>
+    <h1 class="head">โปรแกรมคำนวณเงินเดือน</h1>
+    <br>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">--รายวัน--</label>
+
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btnradio2">--รายเดือน--</label>
+
+    </div>
+
+
+    <main>
+
+
+      <div class="page active" id="page1">
+        <!-- saraly -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="salarytext" class="col-form-label">ค่าจ้าง/วัน</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="salarybox" placeholder="" class="form-control" aria-describedby="salarybox">
+          </div>
+          <div class="col-auto">
+            <span id="bath" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- salary -->
+        <br>
+
+        <!-- Day -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="daytext" class="col-form-label">วันที่มาทำงาน</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="daybox" class="form-control" aria-describedby="daybox">
+          </div>
+          <div class="col-auto">
+            <span id="day" class="form-text">
+              วัน
+            </span>
+          </div>
+        </div>
+        <!-- Day -->
+        <br>
+
+        <!-- OT *1.5 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="otnormaltext" class="col-form-label">OT วันธรรมดา</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="otnormalbox" class="form-control" aria-describedby="otnormalbox">
+          </div>
+          <div class="col-auto">
+            <span id="ot" class="form-text">
+              ชั่วโมง
+            </span>
+          </div>
+        </div>
+        <!-- OT *1.5 -->
+        <br>
+
+        <!-- OT *2 -->
+        <div class="row g-8 align-items-center">
+          <div class="col-auto1">
+            <label for="otx2text" class="col-form-label">ทำงานในวันหยุด หรือ นักขัตฤกษ</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="otx2box" class="form-control" aria-describedby="otx2box">
+          </div>
+          <div class="col-auto">
+            <span id="otx2" class="form-text">
+              วัน
+            </span>
+          </div>
+        </div>
+        <!-- OT *2 -->
+        <br>
+
+        <!-- OT *3 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="otx3text" class="col-form-label">OT ในวันหยุด</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="otx3box" class="form-control" aria-describedby="otx3box">
+          </div>
+          <div class="col-auto">
+            <span id="otx3" class="form-text">
+              ชั่วโมง
+            </span>
+          </div>
+        </div>
+        <!-- OT *3 -->
+        <br>
+
+        <!-- bonus1 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="bonus1text" class="col-form-label">ค่าความเสี่ยงและค่าตอบแทนพิเศษ</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="bonus1box" class="form-control" aria-describedby="bonus1box">
+          </div>
+          <div class="col-auto">
+            <span id="bn1" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- bonus1 -->
+        <br>
+
+        <!-- bonus2 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="bonus2text" class="col-form-label">ค่าเบี้ยเลี้ยง</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="bonus2box" class="form-control" aria-describedby="bonus2box">
+          </div>
+          <div class="col-auto">
+            <span id="bn2" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- bonus2 -->
+        <br>
+
+        <!-- insure -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="insuretext" class="col-form-label">ประกันสังคม</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="insurebox" class="form-control" aria-describedby="insurebox">
+          </div>
+          <div class="col-auto">
+            <span id="insure1" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- insure -->
+        <br>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" id="btnradio3" type="button">--คำนวณ--</button>
+        </div>
+        <!--รายวัน-->
+
+        <div id="result1"></div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" id="btnradio5" type="button" style="display: none;" onclick="resetPage1()">--รีเซ็ต--</button>
+        </div>        
+
+      </div>
+
+      <!--_______________________________________________________________-->
+
+      <div class="page" id="page2">
+        <!-- saraly -->
+        <br>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="salarytext" class="col-form-label">เงินเดือน</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="salarybox1" class="form-control" aria-describedby="salarybox">
+          </div>
+          <div class="col-auto">
+            <span id="bath" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- salary -->
+        <br>
+
+        <!-- ทำงานวันหยุด -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="dayoffworktext" class="col-form-label">ทำงานวันหยุด</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="dayoffwork1" class="form-control" aria-describedby="dayoffwork">
+          </div>
+          <div class="col-auto">
+            <span id="dayoffwork" class="form-text">
+              วัน
+            </span>
+          </div>
+        </div>
+        <!-- ทำงานวันหยุด -->
+        <br>
+
+        <!-- OT *1.5 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="otnormaltext" class="col-form-label">OT วันธรรมดา</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="otnormalbox1" class="form-control" aria-describedby="otnormalbox">
+          </div>
+          <div class="col-auto">
+            <span id="ot" class="form-text">
+              ชั่วโมง
+            </span>
+          </div>
+        </div>
+        <!-- OT *1.5 -->
+        <br>
+
+        <!-- OT *3 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="otnormaltext" class="col-form-label">OT นักขัตฤกษ์</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="otx3box1" class="form-control" aria-describedby="otx3box">
+          </div>
+          <div class="col-auto">
+            <span id="ot" class="form-text">
+              ชั่วโมง
+            </span>
+          </div>
+        </div>
+        <!-- OT *3 -->
+        <br>
+
+        <!-- bonus1 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="bonus1text" class="col-form-label">ค่าความเสี่ยงและค่าตอบแทนพิเศษ</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="bonus1box1" class="form-control" aria-describedby="bonus1box">
+          </div>
+          <div class="col-auto">
+            <span id="bn1" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- bonus1 -->
+        <br>
+
+        <!-- bonus2 -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="bonus2text" class="col-form-label">ค่าเบี้ยเลี้ยง</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="bonus2box1" class="form-control" aria-describedby="bonus2box">
+          </div>
+          <div class="col-auto">
+            <span id="bn2" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- bonus2 -->
+        <br>
+
+        <!-- absent  -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="absenttext" class="col-form-label">ขาดงาน</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="absentbox1" class="form-control" aria-describedby="absentbox">
+          </div>
+          <div class="col-auto">
+            <span id="absent" class="form-text">
+              วัน
+            </span>
+          </div>
+        </div>
+        <!-- absent  -->
+        <br>
+
+        <!-- leave  -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="leavetext" class="col-form-label">ลางาน</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="leavebox1" class="form-control" aria-describedby="leavebox">
+          </div>
+          <div class="col-auto">
+            <span id="leave" class="form-text">
+              วัน
+            </span>
+          </div>
+        </div>
+        <!-- leave  -->
+        <br>
+
+        <!-- late  -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="latetext" class="col-form-label">มาสาย</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="latebox1" class="form-control" aria-describedby="latebox">
+          </div>
+          <div class="col-auto">
+            <span id="late" class="form-text">
+              นาที
+            </span>
+          </div>
+        </div>
+        <!-- late  -->
+        <br>
+
+        <!-- insure -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="insuretext" class="col-form-label">ประกันสังคม</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="insurebox1" class="form-control" aria-describedby="insurebox">
+          </div>
+          <div class="col-auto">
+            <span id="insure1" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- insure -->
+        <br>
+
+        <!-- damage -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto1">
+            <label for="damagetext" class="col-form-label">ค่าความเสียความหาย</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="damagebox1" class="form-control" aria-describedby="damagebox">
+          </div>
+          <div class="col-auto">
+            <span id="damage" class="form-text">
+              บาท
+            </span>
+          </div>
+        </div>
+        <!-- damage -->
+        <br>
+
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" id="btnradio4" type="button">--คำนวณ--</button>
+        </div>
+        <!--รายเดือน-->
+
+        <div id="result2"></div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" id="btnradio6" type="button" style="display: none;" onclick="resetPage2()">--รีเซ็ต--</button>
+        </div>
+
+      </div>
+
+    </main>
+  </main>
+
+  <script src="/Script.js">
+  </script>
+
+
+</body>
+
+</html>
