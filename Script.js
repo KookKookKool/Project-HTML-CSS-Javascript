@@ -166,7 +166,6 @@ function calculateAndShowResult2() {
 
 // เมื่อคลิกปุ่ม btnradio6
 document.getElementById("btnradio6").addEventListener("click", function() {
-  button2.click()
   // ซ่อน result2
   var result2Element = document.getElementById("result2");
   if (result2Element) {
@@ -174,9 +173,23 @@ document.getElementById("btnradio6").addEventListener("click", function() {
   }
 });
 
+
+
 //---reset page2
 function resetPage2() {
-  location.reload(page2);
+    document.getElementById("salarybox1").value = "";
+    document.getElementById("otnormalbox1").value = "";
+    document.getElementById("dayoffwork1").value = "";
+    document.getElementById("otx3box1").value = "";
+    document.getElementById("bonus1box1").value = "";
+    document.getElementById("bonus2box1").value = "";
+    document.getElementById("insurebox1").value = "";
+    document.getElementById("absentbox1").value = "";
+    document.getElementById("leavebox1").value = "";
+    document.getElementById("latebox1").value = "";
+    document.getElementById("damagebox1").value = "";
+    // ... รายชื่อ input อื่น ๆ ที่ต้องการล้างค่า ...
+  
 
   // ซ่อนปุ่ม "btnradio6"
   var btnradio6 = document.getElementById("btnradio6");
