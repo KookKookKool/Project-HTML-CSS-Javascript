@@ -13,11 +13,11 @@
     page1.classList.remove('active');
   });
 
-// ฟังก์ชันสำหรับการตรวจสอบข้อมูลใน input
+// ฟังก์ชันสำหรับการตรวจสอบข้อมูลใน input page1
 function checkInputs() {
   var inputIds = [
     "salarybox", "daybox", "otnormalbox", "otx2box", "otx3box",
-    "bonus1box", "bonus2box", "insurebox"
+    "bonus1box", "bonus2box", "insurebox",
   ];
 
   for (var i = 0; i < inputIds.length; i++) {
@@ -35,12 +35,19 @@ function checkInputs() {
   return true;
 }
 
-
-
+// คำนวณค่าในช่อง input ถ้าหากไม่ผ่านฟังก์ชั่น checkInputs จะไม่โชว์ค่า result1
 
 document.getElementById("btnradio3").addEventListener("click", function() {
-  calculateAndShowResult();
+  if (checkInputs()) {
+    calculateAndShowResult();
+    document.getElementById("btnradio5").style.display = "block";
+  } else {
+    // กรณีไม่ผ่านการตรวจสอบ คุณอาจทำอะไรก็ได้ตามความต้องการ เช่นไม่ต้องแสดงผล result1
+    document.getElementById("result1").innerHTML = "";
+  }
 });
+
+
 
 function calculateAndShowResult() {
   var salary = parseFloat(document.getElementById("salarybox").value) || 0;
@@ -70,11 +77,6 @@ function calculateAndShowResult() {
 
 }
 
-document.getElementById("btnradio3").addEventListener("click", function() {
-  calculateAndShowResult();
-  document.getElementById("btnradio5").style.display = "block";
-});
-
 //---reset page1
 function resetPage1() {
   location.reload(page1);
@@ -89,8 +91,41 @@ function resetPage1() {
 //--------------------------------------------------------------------------------
 
 
+
+function checkInputs2() {
+  var inputIds = [
+    "salarybox1","otnormalbox1","dayoffwork1","otx3box1","bonus1box1",
+    "bonus2box1","insurebox1","absentbox1","leavebox1",
+    "latebox1","damagebox1",
+
+  ];
+
+  for (var i = 0; i < inputIds.length; i++) {
+    var inputElement = document.getElementById(inputIds[i]);
+    var inputValue = inputElement.value;
+
+    if (isNaN(inputValue) || inputValue.trim() === "") {
+      alert("กรุณากรอกข้อมูลเป็นตัวเลขเท่านั้น");
+      inputElement.value = ""; 
+      inputElement.focus();    
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+
+// คำนวณค่าในช่อง input ถ้าหากไม่ผ่านฟังก์ชั่น checkInputs2 จะไม่โชว์ค่า result2
+
 document.getElementById("btnradio4").addEventListener("click", function() {
-  calculateAndShowResult2();
+  if (checkInputs2()) {
+    calculateAndShowResult2();
+    document.getElementById("btnradio6").style.display = "block";
+  } else {
+    // กรณีไม่ผ่านการตรวจสอบ คุณอาจทำอะไรก็ได้ตามความต้องการ เช่นไม่ต้องแสดงผล result1
+    document.getElementById("result2").innerHTML = "";
+  }
 });
 
 function calculateAndShowResult2() {
@@ -128,15 +163,20 @@ function calculateAndShowResult2() {
 }
 
 
-document.getElementById("btnradio4").addEventListener("click", function() {
-  calculateAndShowResult();
-  document.getElementById("btnradio6").style.display = "block";
+
+// เมื่อคลิกปุ่ม btnradio6
+document.getElementById("btnradio6").addEventListener("click", function() {
+  button2.click()
+  // ซ่อน result2
+  var result2Element = document.getElementById("result2");
+  if (result2Element) {
+    result2Element.style.display = "none";
+  }
 });
 
 //---reset page2
 function resetPage2() {
-
-  button2.click();
+  location.reload(page2);
 
   // ซ่อนปุ่ม "btnradio6"
   var btnradio6 = document.getElementById("btnradio6");
@@ -147,16 +187,7 @@ function resetPage2() {
 }
 
 
-// เมื่อคลิกปุ่ม btnradio5
-document.getElementById("btnradio6").addEventListener("click", function() {
 
-  // ซ่อน result2
-  var result2Element = document.getElementById("result2");
-  if (result2Element) {
-    result2Element.style.display = "none";
-  }
-  button2.click();
-});
 
 
 
